@@ -123,7 +123,7 @@ const Header = () => {
         <div className="nav-container">
           <div className="nav-content">
             <a className="nav-brand" href="#home">
-              <span className="brand-highlight">Dev</span>Inno.ai
+              <span className="brand-highlight">Dev</span>Innovators
             </a>
             
             {/* Desktop Navigation */}
