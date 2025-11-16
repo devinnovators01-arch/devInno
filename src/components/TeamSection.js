@@ -8,7 +8,7 @@ const TeamSection = () => {
   const teamMembers = [
     {
       name: "Nakul Gawande",
-      role: "Digital Marketing",
+      role: "Chief Supporter & Marketing Head",
       bio: "Digital marketing expert specializing in SEO, social media strategy, and online brand growth.",
       detailedBio: "Nakul is a results-driven digital marketing professional with expertise in SEO optimization, social media marketing, and digital advertising campaigns. He helps businesses establish strong online presence and drive measurable growth through data-driven strategies.",
       social: {
@@ -38,7 +38,7 @@ const TeamSection = () => {
       bio: "Mobile app developer specializing in cross-platform applications.",
       detailedBio: "Aditya is a skilled mobile app developer with expertise in React Native and Flutter. He creates performant, user-friendly mobile applications that work seamlessly across both iOS and Android platforms.",
       social: {
-        portfolio: "#",
+        portfolio: "https://aditya-yerokar-portfolio.vercel.app/",
         github: "#",
         linkedin: "#"
       },

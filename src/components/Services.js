@@ -50,6 +50,24 @@ const Services = () => {
       description: "Expert advice on tech stack and digital strategy.",
       icon: "💡",
       features: ["Architecture", "Strategy", "Code Review", "Best Practices", "Scalability"]
+    },
+    {
+      title: "Social Media Marketing",
+      description: "Organic & paid campaigns, branding, and influencer marketing.",
+      icon: "📢",
+      features: ["Organic Campaigns", "Paid Advertising", "Political Marketing", "Corporate Branding", "Influencer Marketing"]
+    },
+    {
+      title: "Business Development",
+      description: "Strategic growth consulting and market expansion solutions.",
+      icon: "📈",
+      features: ["Strategic Consulting", "Sales Support", "Market Expansion", "Lead Generation", "Growth Strategy"]
+    },
+    {
+      title: "Marketing Consultancy",
+      description: "Brand positioning, campaign strategy, and market research.",
+      icon: "🎯",
+      features: ["Brand Positioning", "Campaign Strategy", "Market Research", "Competitive Analysis", "ROI Optimization"]
     }
   ];
 
@@ -70,11 +88,11 @@ const Services = () => {
           <div className="header-divider"></div>
         </motion.div>
 
-        {/* Horizontal Services Navigation */}
-        <div className="services-horizontal">
+        {/* Desktop Layout */}
+        <div className="services-desktop">
           {/* Service Navigation */}
           <motion.div 
-            className="service-navigation"
+            className="service-navigation-desktop"
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -82,12 +100,12 @@ const Services = () => {
             {services.map((service, index) => (
               <button
                 key={index}
-                className={`service-nav-item ${activeService === index ? 'active' : ''}`}
+                className={`service-nav-item-desktop ${activeService === index ? 'active' : ''}`}
                 onClick={() => setActiveService(index)}
               >
-                <div className="nav-icon">{service.icon}</div>
-                <span className="nav-title">{service.title}</span>
-                <div className="nav-indicator"></div>
+                <div className="nav-icon-desktop">{service.icon}</div>
+                <span className="nav-title-desktop">{service.title}</span>
+                <div className="nav-indicator-desktop"></div>
               </button>
             ))}
           </motion.div>
@@ -128,6 +146,70 @@ const Services = () => {
           </motion.div>
         </div>
 
+        {/* Mobile Layout */}
+        <div className="services-mobile">
+          <div className="mobile-service-content">
+            <div className="service-icon-large-mobile">
+              {services[activeService].icon}
+            </div>
+            <h2 className="service-title-mobile">
+              {services[activeService].title}
+            </h2>
+            <p className="service-description-mobile">
+              {services[activeService].description}
+            </p>
+            
+            <div className="service-features-mobile">
+              <h4 className="features-title-mobile">Key Features:</h4>
+              <div className="features-list-mobile">
+                {services[activeService].features.map((feature, index) => (
+                  <div key={index} className="feature-item-mobile">
+                    <div className="feature-dot-mobile"></div>
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="mobile-navigation">
+            <div className="mobile-nav-buttons">
+              <button 
+                className="nav-arrow prev"
+                onClick={() => setActiveService(activeService === 0 ? services.length - 1 : activeService - 1)}
+                aria-label="Previous service"
+              >
+                <i className="fas fa-chevron-left"></i>
+              </button>
+              
+              <div className="mobile-service-info">
+                <span className="current-service">{activeService + 1}</span>
+                <span className="service-count">/{services.length}</span>
+              </div>
+              
+              <button 
+                className="nav-arrow next"
+                onClick={() => setActiveService(activeService === services.length - 1 ? 0 : activeService + 1)}
+                aria-label="Next service"
+              >
+                <i className="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            
+            <div className="mobile-service-indicators">
+              {services.map((_, index) => (
+                <button
+                  key={index}
+                  className={`mobile-indicator ${activeService === index ? 'active' : ''}`}
+                  onClick={() => setActiveService(index)}
+                  aria-label={`Go to service ${index + 1}`}
+                ></button>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* CTA Section */}
         <motion.div 
           className="services-cta"
@@ -137,7 +219,7 @@ const Services = () => {
         >
           <h3 className="cta-title">Ready to Start Your Project?</h3>
           <p className="cta-description">
-            Let's discuss how we can bring your vision to life with our comprehensive development services.
+            Let's discuss how we can bring your vision to life with our comprehensive development and marketing services.
           </p>
           <motion.button 
             className="cta-button"

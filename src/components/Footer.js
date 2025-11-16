@@ -86,7 +86,7 @@ const Footer = () => {
                   aria-label="Your Email"
                   required
                 />
-                <button className="btn btn-primary" type="submit">
+                <button className="btn btn-primary" type="submit" style={{ width: "50%" }}> 
                   <i className="bi bi-send"></i>
                 </button>
               </div>

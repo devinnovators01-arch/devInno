@@ -11,10 +11,10 @@ const ContactSection = () => {
     address: "Pune 444108",
     mapUrl: "https://www.google.com/maps/place/Kondhwa,+Pune,+Maharashtra/@18.4677736,73.8935393,14z/data=!3m1!4b1!4m6!3m5!1s0x3bc2ea8a75f1ed4f:0xcc6015e2f426fa4a!8m2!3d18.4695088!4d73.8889779!16s%2Fg%2F1vljdss5?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D",
     social: {
-      facebook: "#",
+      facebook: "https://www.facebook.com/dev.innovatorsolutions/",
       twitter: "#",
-      linkedin: "#",
-      instagram: "#"
+      linkedin: "https://www.linkedin.com/company/dev-innovators/",
+      instagram: "https://www.instagram.com/dev.innovators/"
     }
   };
 
@@ -73,12 +73,9 @@ const ContactSection = () => {
               <div className="contact-info-section-expanded">
                 <div className="contact-person-header-expanded">
                   <div className="contact-person-avatar-expanded">
-                    <div className="person-initial-expanded">
-                      {contactInfo.name.split(' ').map(n => n[0]).join('')}
-                    </div>
                     <div className="person-info-expanded">
-                      <h3 className="person-name-expanded">{contactInfo.name}</h3>
-                      <p className="person-role-expanded">{contactInfo.role}</p>
+                      <h3 className="person-name-expanded">Contact Us</h3>
+                      <p className="person-role-expanded">Get in touch with our team for inquiries, support, or project collaborations.</p>
                     </div>
                   </div>
                   
