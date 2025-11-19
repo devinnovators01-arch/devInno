@@ -123,7 +123,7 @@ const Header = () => {
         <div className="nav-container">
           <div className="nav-content">
             <a className="nav-brand" href="#home">
-              <span className="brand-highlight">Dev</span>Innovators
+              <span className="brand-highlight">Digital</span>Priorities
             </a>
             
             {/* Desktop Navigation */}
