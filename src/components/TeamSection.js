@@ -33,19 +33,6 @@ const TeamSection = () => {
       isMain: false
     },
     {
-      name: "Aditya Yerokar",
-      role: "App Developer",
-      bio: "Mobile app developer specializing in cross-platform applications.",
-      detailedBio: "Aditya is a skilled mobile app developer with expertise in React Native and Flutter. He creates performant, user-friendly mobile applications that work seamlessly across both iOS and Android platforms.",
-      social: {
-        portfolio: "https://aditya-yerokar-portfolio.vercel.app/",
-        github: "#",
-        linkedin: "#"
-      },
-      skills: ["React Native", "Flutter", "iOS", "Android", "Firebase"],
-      isMain: false
-    },
-    {
       name: "Aditya Admane",
       role: "MERN Specialist",
       bio: "Full-stack developer skilled in the MERN stack applications.",
@@ -56,6 +43,19 @@ const TeamSection = () => {
         linkedin: "https://www.linkedin.com/in/aditya-admane-42b489245"
       },
       skills: ["MongoDB", "Express.js", "React", "Node.js", "REST APIs"],
+      isMain: false
+    },
+    {
+      name: "Aditya Yerokar",
+      role: "App Developer",
+      bio: "Mobile app developer specializing in cross-platform applications.",
+      detailedBio: "Aditya is a skilled mobile app developer with expertise in React Native and Flutter. He creates performant, user-friendly mobile applications that work seamlessly across both iOS and Android platforms.",
+      social: {
+        portfolio: "https://aditya-yerokar-portfolio.vercel.app/",
+        github: "#",
+        linkedin: "#"
+      },
+      skills: ["React Native", "Flutter", "iOS", "Android", "Firebase"],
       isMain: false
     }
   ];
