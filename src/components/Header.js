@@ -164,7 +164,7 @@ const Header = () => {
           {/* Mobile Navigation Menu */}
           <div className={`nav-mobile ${menuOpen ? 'nav-mobile-open' : ''}`}>
             <ul className="nav-mobile-links">
-              {['about', 'services', 'projects', 'contact'].map((section) => (
+              {['about', 'services', 'projects', 'team', 'contact'].map((section) => (
                 <li key={section} className="nav-mobile-item">
                   <a 
                     className="nav-mobile-link"

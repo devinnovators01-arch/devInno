@@ -17,7 +17,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <h3 className="h5 mb-3">
-              <span className="brand-highlight">Dev</span>Innovators
+              <span className="brand-highlight">Digital</span>Priorities
             </h3>
             <p>Creating innovative web solutions that help businesses grow in the digital world.</p>
             <div className="mt-3">
@@ -110,7 +110,7 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <p className="mb-0">
-            &copy; {currentYear} DevInnovators. All rights reserved. | 
+            &copy; {currentYear} DigitalPriorities. All rights reserved. | 
             <a href="#" className="text-white text-decoration-none ms-1">Privacy Policy</a> | 
             <a href="#" className="text-white text-decoration-none ms-1">Terms of Service</a>
           </p>

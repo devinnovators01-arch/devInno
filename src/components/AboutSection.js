@@ -116,7 +116,7 @@ const AboutSection = () => {
               className="lead-text"
               variants={itemVariants}
             >
-              <strong>Dev Innovators</strong> is your premier partner for transforming innovative ideas into powerful digital solutions. We combine cutting-edge technology with strategic design to deliver exceptional results that propel your business forward.
+              <strong>Digital Priorities</strong> is your premier partner for transforming innovative ideas into powerful digital solutions. We combine cutting-edge technology with strategic design to deliver exceptional results that propel your business forward.
             </motion.p>
 
             <motion.p

@@ -286,6 +286,7 @@
 .carousel-indicators {
   display: flex;
   gap: 12px;
+  bottom: -50px;
 }
 
 .indicator {
