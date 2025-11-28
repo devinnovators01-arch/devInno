@@ -1,11 +1,14 @@
 // components/Services.js
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import '../css/services.css';
 
 const Services = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [clickedCard, setClickedCard] = useState(null);
+  const [showAllServices, setShowAllServices] = useState(false);
+  
+  const allServicesRef = useRef(null);
 
   const services = [
     {
@@ -100,6 +103,20 @@ const Services = () => {
     }
   ];
 
+  const initialServices = services.slice(0, 5);
+  const remainingServices = services.slice(5);
+
+  const handleViewAllServices = () => {
+    setShowAllServices(true);
+    // Scroll to the bottom of all services after a short delay to allow state update
+    setTimeout(() => {
+      allServicesRef.current?.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'end'
+      });
+    }, 100);
+  };
+
   const handleCardClick = (index) => {
     if (window.innerWidth <= 768) {
       setClickedCard(clickedCard === index ? null : index);
@@ -139,6 +156,18 @@ const Services = () => {
     }
   };
 
+  const remainingServicesVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   return (
     <section id="services" className="services-section">
       <div className="container">
@@ -156,7 +185,7 @@ const Services = () => {
           <div className="header-divider"></div>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Initial Services Grid (First 5) */}
         <motion.div 
           className="services-grid"
           variants={containerVariants}
@@ -164,7 +193,7 @@ const Services = () => {
           whileInView="visible"
           viewport={{ once: true, threshold: 0.1 }}
         >
-          {services.map((service, index) => (
+          {initialServices.map((service, index) => (
             <motion.div
               key={index}
               className="service-card-container"
@@ -209,10 +238,11 @@ const Services = () => {
                         e.stopPropagation();
                         setClickedCard(null);
                       }}
-
-                      style={{backgroundColor: "#eeeeee",
-    borderRadius: "15px",
-    width: "100px",}}
+                      style={{
+                        backgroundColor: "#eeeeee",
+                        borderRadius: "15px",
+                        width: "100px",
+                      }}
                     >
                       Close
                     </button>
@@ -222,6 +252,99 @@ const Services = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* View All Services Button */}
+        {!showAllServices && (
+          <motion.div 
+            className="view-all-container"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <motion.button 
+              className="view-all-btn"
+              onClick={handleViewAllServices}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 30px rgba(108, 99, 255, 0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              View All Services
+            </motion.button>
+          </motion.div>
+        )}
+
+        {/* Remaining Services Grid */}
+        {showAllServices && (
+          <motion.div 
+            ref={allServicesRef}
+            className="services-grid remaining-services"
+            variants={remainingServicesVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {remainingServices.map((service, index) => (
+              <motion.div
+                key={index + 5}
+                className="service-card-container"
+                variants={cardVariants}
+                onMouseEnter={() => handleCardHover(index + 5)}
+                onMouseLeave={handleCardLeave}
+                onClick={() => handleCardClick(index + 5)}
+              >
+                <div className={`service-card ${hoveredCard === index + 5 || clickedCard === index + 5 ? 'flipped' : ''}`}>
+                  {/* Front of Card - Only Image and Title */}
+                  <div className="card-front">
+                    <div 
+                      className="service-image"
+                      style={{ backgroundImage: `url(${service.image})` }}
+                    >
+                      <div className="image-overlay"></div>
+                      <h3 className="service-title-front">{service.title}</h3>
+                    </div>
+                  </div>
+
+                  {/* Back of Card - Description and Features */}
+                  <div className="card-back">
+                    <div className="card-back-content">
+                      <h4 className="back-title">{service.title}</h4>
+                      <p className="back-description">{service.description}</p>
+                      
+                      <div className="back-features">
+                        <h5 className="features-title">What We Offer:</h5>
+                        <ul className="features-list">
+                          {service.features.map((feature, featureIndex) => (
+                            <li key={featureIndex} className="feature-item">
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Close button for mobile */}
+                      <button 
+                        className="close-card-btn"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setClickedCard(null);
+                        }}
+                        style={{
+                          backgroundColor: "#eeeeee",
+                          borderRadius: "15px",
+                          width: "100px",
+                        }}
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
 
         {/* CTA Section */}
         <motion.div 
