@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../css/header.css';
 import { motion } from 'framer-motion';
+import logo from '../assets/logo.png';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -123,8 +124,9 @@ const Header = () => {
         <div className="nav-container">
           <div className="nav-content">
             <a className="nav-brand" href="#home">
-              <span className="brand-highlight">Digital</span>Priorities
-            </a>
+            <img src={logo} alt="DigitalPriorities Logo" className="logo-img" />
+            <span className="brand-highlight">Digital</span>Priorities
+          </a>
             
             {/* Desktop Navigation */}
             <div className="nav-desktop">

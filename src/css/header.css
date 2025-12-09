@@ -16,6 +16,15 @@
   box-sizing: border-box;
 }
 
+.logo-img {
+  height: 60px;          /* Adjust logo size */
+  width: auto;   /* Space between logo and text */
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+  margin-bottom: 10px;
+}
+
 .header-section {
   position: relative;
   background: var(--darker);
@@ -170,7 +179,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(15, 15, 35, 0.98);
+  background: rgb(15 15 35 / 67%);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;

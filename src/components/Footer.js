@@ -1,6 +1,7 @@
 // components/JS Footer.js
 import React from 'react';
 import { motion } from 'framer-motion';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,6 +18,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <h3 className="h5 mb-3">
+              <img src={logo} alt="DigitalPriorities Logo" className="logo-img" />
               <span className="brand-highlight">Digital</span>Priorities
             </h3>
             <p>Creating innovative web solutions that help businesses grow in the digital world.</p>
